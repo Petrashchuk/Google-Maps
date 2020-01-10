@@ -1,0 +1,22 @@
+<h3 *ngIf="checkType">Edit Modal</h3>
+<h3 *ngIf="!checkType">Add New Place </h3>
+<form [formGroup]="myForm" style="position: relative" (ngSubmit)="onSubmit(myForm.value)">
+  <mat-form-field>
+    <input matInput formControlName="place" placeholder="Place name" required>
+    <mat-error *ngIf="myForm.controls['place'].errors">Should type name</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput id="addresField" formControlName="address" placeholder="Address" required
+           #addressInput>
+    <mat-error *ngIf="myForm.controls['address'].errors ">Should type address</mat-error>
+    <!--<mat-error *ngIf="myForm.controls['address'].errors && !myForm.controls['placeObj'].value">Choose address from autocomplete</mat-error>-->
+  </mat-form-field>
+  <p style="font-size: 0.75em; color: red; position: absolute; top: 50px; right: 65px;" *ngIf="!isChoosenFromAutoComplete && !myForm.controls['address'].errors">Choose address from autocomplete or drag</p>
+  <div id="smallMap" class=" ml-1" style="height:400px; " #mapContainerSmall></div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeModal($event)">No Thanks</button>
+    <button *ngIf="!checkType" mat-button type="submit">Ok</button>
+    <button *ngIf="checkType" mat-button type="submit">Save Changes</button>
+  </div>
+</form>
+

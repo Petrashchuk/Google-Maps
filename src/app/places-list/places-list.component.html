@@ -1,0 +1,16 @@
+<div class="list rounded mb-0">
+  <div *ngFor="let place of places;let i=index" (dblclick)="editModal(place)"
+       class="d-flex justify-content-between hover p-2" style="cursor: pointer;">
+    <div>
+      <span class="font-weight-bold">{{i+1}}. </span>
+      <span><span class="font-weight">Place: </span> {{place.place}}</span>
+    </div>
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" (click)="removePosititonAndMarker(place)" width="24" height="24"
+           viewBox="0 0 24 24">
+        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+      </svg>
+    </p>
+  </div>
+</div>

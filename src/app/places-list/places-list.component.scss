@@ -1,0 +1,9 @@
+.list {
+  height: 90%;
+  border: 1px solid black;
+}
+
+.hover:hover {
+  box-shadow: 0 10px 15px gray;
+  transition: 0.5s;
+}

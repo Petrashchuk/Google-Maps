@@ -1,0 +1,19 @@
+<div class="header d-flex m-2 align-items-center">
+  <div>Places</div>
+  <div (click)="createPlace()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+      <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+  </div>
+  <form id="dropFileForm">
+    <input type="file" (change)="getFile($event)" value="fileInput" name="files[]" id="fileInput" multiple #fileInput>
+    <label for="fileInput" style="margin: 0!important; cursor: pointer" id="fileLabel"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/><path d="M0 0h24v24H0z" fill="none"/></svg></label>
+  </form>
+  <div class="ml-2">
+    <input type="text"
+           (input)="filterPlaces($event)"
+           id="searchInput" class="form-control inputText" placeholder="search">
+  </div>
+</div>
